@@ -1,3 +1,4 @@
+import path from 'path';
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import text2png from 'text2png';
 
@@ -26,9 +27,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     `IP: ${req.headers['x-real-ip']}`,
   ].map(line => toMultiline(line)).join('\n');
   const pngStream = text2png(text, {
+    localFontPath: path.join(__dirname, '..', 'Arial.ttf'),
+    localFontName: 'Arial',
     color: 'purple',
     backgroundColor: 'linen',
-    font: '20px sans-serif',
+    font: '20px Arial',
     lineSpacing: 8,
     padding: 25,
     output: 'stream',
