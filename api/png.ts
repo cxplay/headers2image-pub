@@ -28,7 +28,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const pngStream = text2png(text, {
     color: 'purple',
     backgroundColor: 'linen',
-    font: '20px',
+    font: '20px sans-serif',
     lineSpacing: 8,
     padding: 25,
     output: 'stream',
