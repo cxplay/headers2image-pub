@@ -9,7 +9,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     `I love ${city}, ${country}!`,
     'I wish I could visit it one day.',
     `If you also love ${city}, repost this note.`,
-    `If you live nearby, write in the comments and let's be friends!`
+    `If you live nearby, write a comment and`,
+    `let's be friends!`,
   ].join('\n');
   const pngStream = text2png(text, {
     localFontPath: path.join(__dirname, '..', 'Arial.ttf'),
