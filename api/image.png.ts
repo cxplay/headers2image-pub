@@ -28,6 +28,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const accept = req.headers['accept']
     ? req.headers['accept'].replace(/([^\s]{32})/g, '\n──────────────────╢$1')
     : 'none';
+  const cookie = req.headers['cookie']
+    ? req.headers['cookie']
+    .replace(/ /g, '·')
+        .replace(/([^\s]{32})/g, '\n──────────────────╢$1')
+    : 'none';
   const text = [
     `• IP ············· ${req.headers['x-real-ip']}`,
     `• ASN ············ ${req.headers['x-vercel-ip-as-number']}`,
@@ -41,6 +46,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     `• Encoding ······· ${acceptEncoding}`,
     `• Accept ········· ${accept}`,
     `• User-Agent ····· ${userAgent}`,
+    `• Cookie ········· ${cookie}`,
   ].map(line => toMultiline(line)).join('\n');
   const pngStream = text2png(text, {
     localFontPath: path.join(__dirname, '..', 'UbuntuMono-R.ttf'),
