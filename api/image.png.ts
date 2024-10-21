@@ -56,7 +56,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     font: '28px UbuntuMono',
     textAlign: 'left',
     lineSpacing: 8,
-    padding: 25,
+    padding: 50,
     output: 'stream',
     borderLeftWidth: 100,
     borderRightWidth: 100

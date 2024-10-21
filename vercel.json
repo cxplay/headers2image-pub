@@ -5,20 +5,36 @@
       "destination": "/api/json"
     },
     {
+      "source": "/json",
+      "destination": "/api/json"
+    },
+    {
+      "source": "/json-(.*)",
+      "destination": "/api/json"
+    },
+    {
+      "source": "/json.json",
+      "destination": "/api/json"
+    },
+    {
+      "source": "/json-(.*).json",
+      "destination": "/api/json"
+    },
+    {
       "source": "/image",
       "destination": "/api/image.png"
     },
     {
-      "source": "/json",
-      "destination": "/api/json"
+      "source": "/image-(.*)",
+      "destination": "/api/image.png"
     },
     {
       "source": "/image.png",
       "destination": "/api/image.png"
     },
     {
-      "source": "/json.json",
-      "destination": "/api/json"
+      "source": "/image-(.*).png",
+      "destination": "/api/image.png"
     }
   ]
 }
