@@ -22,9 +22,9 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         .replace(/ /g, '·')
         .replace(/([^\s]{32})/g, '\n──────────────────╢$1')
     : 'none';
-  const acceptEncoding = req.headers['accept-encoding']
-    ? req.headers['accept-encoding'].replace(/ /g, '·')
-    : 'none';
+  const acceptEncoding = Array.isArray(req.headers['accept-encoding'])
+    ? req.headers['accept-encoding'].join(',').replace(/ /g, '·')
+    : (req.headers['accept-encoding'] || 'none').replace(/ /g, '·');
   const accept = req.headers['accept']
     ? req.headers['accept'].replace(/([^\s]{32})/g, '\n──────────────────╢$1')
     : 'none';
