@@ -20,13 +20,13 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const userAgent = req.headers['user-agent']
     ? req.headers['user-agent']
         .replace(/ /g, '·')
-        .replace(/([^\s]{32})/g, '\n───────────────────╢$1')
+        .replace(/([^\s]{32})/g, '\n──────────────────╢$1')
     : 'none';
   const acceptEncoding = req.headers['accept-encoding']
     ? req.headers['accept-encoding'].replace(/ /g, '·')
     : 'none';
   const accept = req.headers['accept']
-    ? req.headers['accept'].replace(/([^\s]{32})/g, '\n───────────────────╢$1')
+    ? req.headers['accept'].replace(/([^\s]{32})/g, '\n──────────────────╢$1')
     : 'none';
   const text = [
     `• IP ············· ${req.headers['x-real-ip']}`,
