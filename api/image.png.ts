@@ -26,11 +26,13 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     ? req.headers['accept-encoding'].join(',').replace(/ /g, '·')
     : (req.headers['accept-encoding'] || 'none').replace(/ /g, '·');
   const accept = req.headers['accept']
-    ? req.headers['accept'].replace(/([^\s]{32})/g, '\n──────────────────╢$1')
+    ? req.headers['accept']
+        .replace(/ /g, '·')
+        .replace(/([^\s]{32})/g, '\n──────────────────╢$1')
     : 'none';
   const cookie = req.headers['cookie']
     ? req.headers['cookie']
-    .replace(/ /g, '·')
+        .replace(/ /g, '·')
         .replace(/([^\s]{32})/g, '\n──────────────────╢$1')
     : 'none';
   const text = [
